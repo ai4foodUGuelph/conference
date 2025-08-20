@@ -532,6 +532,49 @@ footer .foot-last h2 {
   padding: 30px 0;
 }
 
+.program-page .sec1 {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.program-page .sec3 {
+  padding: 2rem 1rem;
+}
+
+.program-page h2 {
+  text-align: center;
+  color: var(--color-lightblack);
+  margin-bottom: 0.5rem;
+}
+
+.program-list {
+  padding: 0 1rem;
+}
+
+.program-list li {
+  background: #f9f9f9;
+  border-left: 5px solid var(--color-secondary);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.program-list li:hover {
+  transform: translateX(3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+  background: #fff;
+}
+
+.program-list li strong {
+  color: var(--color-secondaryDeep);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
 @media screen and (min-width: 768px) {
   .header {
     width: 100%;
@@ -828,8 +871,7 @@ footer .foot-last h2 {
   .line-program {
     width: 2rem;
     height: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto 20px auto;
     border: 1px solid var(--color-secondaryDeep);
   }
 
@@ -838,6 +880,8 @@ footer .foot-last h2 {
     flex-direction: column;
     gap: 2rem;
     padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -865,7 +909,14 @@ footer .foot-last h2 {
     font-size: 1.05rem;
     text-align: left;
     box-sizing: border-box;
-    width: 100%;                   
+    width: 100%;
+    transition: all 0.3s ease;                   
+  }
+
+  .program-list li:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    background: #fff;
   }
 
   .program-list li strong {
