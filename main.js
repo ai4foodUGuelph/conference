@@ -1,20 +1,77 @@
-const menuList = document.querySelector('.menu-sec');
-const menuIcon = document.querySelector('.menu');
-const allSpeakers = document.querySelector('.speakers');
-
-menuIcon.addEventListener('click', (e) => {
-  if (e.target.classList.contains('menu')) {
-    menuList.style.display = 'flex';
-    menuIcon.style.display = 'none';
-  }
-});
-
-menuList.addEventListener('click', (e) => {
-  const clicked = e.target.classList.contains('links');
-  if (clicked) {
-    menuList.style.display = 'none';
-    menuIcon.style.display = 'flex';
-  }
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu');
+    const menuSec = document.querySelector('.menu-sec');
+    const cancelIcon = document.querySelector('.cancel');
+    
+    if (menuIcon && menuSec) {
+        menuIcon.addEventListener('click', function() {
+            menuSec.style.display = 'flex';
+        });
+    }
+    
+    if (cancelIcon && menuSec) {
+        cancelIcon.addEventListener('click', function() {
+            menuSec.style.display = 'none';
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Add animation to stats numbers on scroll
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(number => {
+                    const target = parseInt(number.getAttribute('data-target'));
+                    animateCounter(number, target);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+    
+    function animateCounter(element, target) {
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            element.textContent = Math.floor(current);
+        }, 30);
+    }
+    
+    // Legacy speaker functionality for compatibility
+    const allSpeakers = document.querySelector('.speakers');
+    if (allSpeakers) {
+        // Speaker code here if needed
+    }
 });
 
 const guests = [
