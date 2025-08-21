@@ -1324,13 +1324,14 @@ footer .foot-last h2 {
 
 /* Grid layout for home speakers - clean 4-card layout fixed to 4 columns */
 .home-speakers-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 2rem;
   margin-top: 3rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  flex-wrap: wrap;
 }
 
 /* Individual speaker card - clean design matching About page */
@@ -1341,6 +1342,9 @@ footer .foot-last h2 {
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
+  width: 300px;
+  min-height: 350px;
+  flex-shrink: 0;
 }
 
 .home-speaker-card:hover {
