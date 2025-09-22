@@ -1177,6 +1177,10 @@ footer .foot-last h2 {
   overflow: hidden;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 /* Speaker card hover effect - lifts up */
@@ -1271,18 +1275,63 @@ footer .foot-last h2 {
 }
 
 /* Speaker name styling */
-.speaker-info h3 {
+.speaker-card h3 {
   color: var(--color-lightblack);
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Speaker type badge */
+.speaker-type {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* Different colors for different speaker types */
+.keynote-speaker .speaker-type {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+}
+
+.panel-speaker .speaker-type {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.industry-speaker .speaker-type {
+  background: linear-gradient(135deg, #ec5242, #e2220c);
+}
+
+.presenter-speaker .speaker-type {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.organizer-speaker .speaker-type {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
 }
 
 /* Speaker title/position */
 .speaker-title {
   color: #667eea;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Speaker biography text */
+.speaker-bio {
+  color: #666;
   font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: left;
+  margin-top: 1rem;
 }
 
 /* Speaker organization */
